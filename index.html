@@ -5,13 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Soleil Portal Website</title>
 	<!-- BootStrap -->
-	<link rel="stylesheet" type="text/css" href="./assets/plugins/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
 	<!-- goole Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" href="./assets/fonts/fontawesome/css/all.min.css">
 	<!-- Meterial Font -->
 	<link rel="stylesheet" type="text/css" href="./assets/fonts/material/css/material-icon-font.min.css">
+	<!-- RevSlider -->
+	<link rel="stylesheet" type="text/css" href="./assets/plugins/revslider/rs6.css">
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" type="text/css" href="./assets/plugins/owl-carousel/owl.carousel.min.css">
 	<!-- slick slider -->
@@ -19,6 +21,58 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/responsive.css">
+
+	<script type="text/javascript">
+	    function setREVStartSize(e) {
+	        //window.requestAnimationFrame(function() {
+	        window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+	        window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+	        try {
+	            var pw = document.getElementById(e.c).parentNode.offsetWidth,
+	                newh;
+	            pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+	            e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+	            e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+	            e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+	            e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+	            e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+	            e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+	            e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+	            if (e.layout === "fullscreen" || e.l === "fullscreen") newh = Math.max(e.mh, window.RSIH);
+	            else {
+	                e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+	                for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+	                e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+	                e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+	                for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+	                var nl = new Array(e.rl.length),
+	                    ix = 0,
+	                    sl;
+	                e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+	                e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+	                e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+	                e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+	                for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+	                sl = nl[0];
+	                for (var i in nl)
+	                    if (sl > nl[i] && nl[i] > 0) {
+	                        sl = nl[i];
+	                        ix = i;
+	                    }
+	                var m = pw > e.gw[ix] + e.tabw + e.thumbw ? 1 : (pw - (e.tabw + e.thumbw)) / e.gw[ix];
+	                newh = e.gh[ix] * m + (e.tabh + e.thumbh);
+	            }
+	            if (window.rs_init_css === undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));
+	            document.getElementById(e.c).height = newh + "px";
+	            window.rs_init_css.innerHTML += "#" + e.c + "_wrapper { height: " + newh + "px }";
+	        } catch (e) {
+	            console.log("Failure at Presize of Slider:" + e);
+	        }
+	        //});
+	    }
+	</script>
+
 </head>
 <body>
 	<!-- Header -->
@@ -481,58 +535,394 @@
 	</header>
 	<!-- Header -->
 	<main>
-		<!-- Home Slider -->
-		<section class="home-section">
-			<div class="home__items-wrapper">
-				<div class="home__item-outer">
-					<img src="./assets/images/slider1.jpg" alt="Image" class="home__item-image-inner">
-					<div class="home__item-info-outer">
-						<h1 class="home__item-info-title">
-							<span class="bold">Always</span> 
-							<span>Deliver</span> 
-							<span class="bold">More</span> 
-							<span>than</span> 
-							<span class="bold">Expected.</span>
-						</h1>
-						<a href="#" class="common-btn-link">
-							Read More <i class="fas fa-angle-right"></i>
-						</a>
-					</div>
-				</div>
-				<div class="home__item-outer">
-					<img src="./assets/images/slider2.jpg" alt="Image" class="home__item-image-inner">
-					<div class="home__item-info-outer">
-						<h1 class="home__item-info-title">
-							<span>We never</span> 
-							<span class="bold">Dreamed</span> 
-							<span>about</span> 
-							<span class="bold">Success</span> 
-							<span>we</span> 
-							<span class="bold">Worked</span>
-							<span>for it.</span> 
-						</h1>
-						<a href="#" class="common-btn-link">
-							Read More <i class="fas fa-angle-right"></i>
-						</a>
-					</div>
-				</div>
-				<div class="home__item-outer">
-					<img src="./assets/images/slider3.jpg" alt="Image" class="home__item-image-inner">
-					<div class="home__item-info-outer">
-						<h1 class="home__item-info-title">
-							<span class="bold">Expert</span> 
-							<span>in</span> 
-							<span>Business</span> 
-							<span class="bold">Advice</span> 
-						</h1>
-						<a href="#" class="common-btn-link">
-							Read More <i class="fas fa-angle-right"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Home Slider -->
+		<!-- START Consultancy REVOLUTION SLIDER 6.3.3 -->
+		<rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="background: transparent; padding: 0; margin: 0px auto; margin-top: 0; margin-bottom: 0; max-width: ;">
+		    <rs-module id="rev_slider_1_1" style="" data-version="6.3.3">
+		        <rs-slides>
+		            <rs-slide data-key="rs-1" data-title="Slide" data-thumb="assets/images/slider1.jpg" data-anim="ei:d;eo:d;s:d;r:0;t:crossfade;sl:d;">
+		                <img src="assets/images/slider1.jpg" title="Home &#8211; 1" class="rev-slidebg" data-no-retina />
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-2"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:210px;"
+		                    data-text="s:95;l:140;fw:900;a:inherit;"
+		                    data-frame_0="y:80px;"
+		                    data-frame_1="st:500;sp:1500;sR:500;"
+		                    data-frame_999="st:w;sp:1000;sR:7000;auto:true;"
+		                    style="z-index: 5; font-family: Raleway;"
+		                >
+		                    Always
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-3"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:343px;y:211px;"
+		                    data-text="s:95;l:140;fw:100;a:inherit;"
+		                    data-frame_0="y:-40px;"
+		                    data-frame_1="st:1500;sp:1500;sR:1500;"
+		                    data-frame_999="st:w;sp:1000;sR:6000;auto:true;"
+		                    style="z-index: 6; font-family: Raleway;"
+		                >
+		                    Deliver
+		                </rs-layer>
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-4"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:330px;"
+		                    data-text="s:65;l:100;fw:900;a:inherit;"
+		                    data-frame_1="st:2500;sp:1500;sR:2500;"
+		                    data-frame_999="st:w;sp:1000;sR:5000;auto:true;"
+		                    style="z-index: 7; font-family: Raleway;"
+		                >
+		                    More
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-5"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:177px;y:330px;"
+		                    data-text="s:65;l:100;fw:100;a:inherit;"
+		                    data-frame_1="st:3500;sp:1500;sR:3500;"
+		                    data-frame_999="st:w;sp:1000;sR:4000;auto:true;"
+		                    style="z-index: 8; font-family: Raleway;"
+		                >
+		                    than
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-6"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:316px;y:330px;"
+		                    data-text="s:65;l:100;fw:900;a:inherit;"
+		                    data-frame_0="x:250px;"
+		                    data-frame_1="st:4500;sp:1500;sR:4500;"
+		                    data-frame_999="st:w;sp:1000;sR:3000;auto:true;"
+		                    style="z-index: 9; font-family: Raleway;"
+		                >
+		                    Expected.
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-1-layer-7"
+		                    class="rev-btn rev-withicon"
+		                    data-type="button"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:442px;"
+		                    data-text="s:18;l:17;fw:600;a:inherit;"
+		                    data-padding="t:18;r:35;b:18;l:35;"
+		                    data-border="bos:solid;boc:#274584;bow:3px,3px,3px,3px;"
+		                    data-frame_0="y:50px;"
+		                    data-frame_1="st:5500;sp:1500;sR:5500;"
+		                    data-frame_999="st:w;sp:1000;sR:2000;auto:true;"
+		                    data-frame_hover="c:#fff;bgc:#274584;boc:#274584;bor:0px,0px,0px,0px;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:none;"
+		                    style="z-index: 10; background-color: rgba(0, 0, 0, 0); font-family: Raleway; cursor: pointer; outline: none; box-shadow: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"
+		                >
+		                    Read More&nbsp; &nbsp;<i class="fa-angle-right"></i>
+		                </rs-layer>
+		            </rs-slide>
+		            <rs-slide data-key="rs-2" data-title="Slide" data-thumb="assets/images/slider2.jpg" data-anim="ei:d;eo:d;s:d;r:0;t:crossfade;sl:d;">
+		                <img src="assets/images/slider2.jpg" title="Home &#8211; 1" class="rev-slidebg" data-no-retina />
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-2"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:200px;"
+		                    data-text="s:65;l:140;fw:100;a:inherit;"
+		                    data-frame_0="y:80px;"
+		                    data-frame_1="st:500;sp:1500;sR:500;"
+		                    data-frame_999="st:w;sp:1000;sR:7000;auto:true;"
+		                    style="z-index: 5; font-family: Raleway;"
+		                >
+		                    We never
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-3"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:297px;y:201px;"
+		                    data-text="s:65;l:140;fw:900;a:inherit;"
+		                    data-frame_0="y:-40px;"
+		                    data-frame_1="st:1500;sp:1500;sR:1500;"
+		                    data-frame_999="st:w;sp:1000;sR:6000;auto:true;"
+		                    style="z-index: 6; font-family: Raleway;"
+		                >
+		                    Dreamed
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-4"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:300px;"
+		                    data-text="s:65;l:100;fw:100;a:inherit;"
+		                    data-frame_0="x:-200px;"
+		                    data-frame_1="st:2500;sp:1500;sR:2500;"
+		                    data-frame_999="st:w;sp:1000;sR:5000;auto:true;"
+		                    style="z-index: 7; font-family: Raleway;"
+		                >
+		                    about
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-5"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:187px;y:300px;"
+		                    data-text="s:65;l:100;fw:900;a:inherit;"
+		                    data-frame_0="x:250px;"
+		                    data-frame_1="st:3500;sp:1500;sR:3500;"
+		                    data-frame_999="st:w;sp:1000;sR:4000;auto:true;"
+		                    style="z-index: 8; font-family: Raleway;"
+		                >
+		                    Success,
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-6"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:386px;"
+		                    data-text="s:65;l:100;fw:100;a:inherit;"
+		                    data-frame_0="x:250px;"
+		                    data-frame_1="st:4500;sp:1500;sR:4500;"
+		                    data-frame_999="st:w;sp:1000;sR:3000;auto:true;"
+		                    style="z-index: 9; font-family: Raleway;"
+		                >
+		                    we
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-7"
+		                    class="rev-btn rev-withicon"
+		                    data-type="button"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:509px;"
+		                    data-text="s:18;l:17;fw:600;a:inherit;"
+		                    data-padding="t:18;r:35;b:18;l:35;"
+		                    data-border="bos:solid;boc:#274584;bow:3px,3px,3px,3px;"
+		                    data-frame_0="y:50px;"
+		                    data-frame_1="st:7500;sp:1500;sR:7500;"
+		                    data-frame_999="st:w;sp:1000;auto:true;"
+		                    data-frame_hover="c:#fff;bgc:#274584;boc:#274584;bor:0px,0px,0px,0px;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:none;"
+		                    style="z-index: 12; background-color: rgba(0, 0, 0, 0); font-family: Raleway; cursor: pointer; outline: none; box-shadow: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"
+		                >
+		                    Read More&nbsp;&nbsp;<i class="fa-angle-right"></i>
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-8"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:107px;y:389px;"
+		                    data-text="s:65;l:100;fw:900;a:inherit;"
+		                    data-frame_0="x:-250px;"
+		                    data-frame_1="st:5500;sp:1500;sR:5500;"
+		                    data-frame_999="st:w;sp:1000;sR:2000;auto:true;"
+		                    style="z-index: 10; font-family: Raleway;"
+		                >
+		                    Worked
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-2-layer-9"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:375px;y:391px;"
+		                    data-text="s:65;l:100;fw:100;a:inherit;"
+		                    data-frame_0="x:150px;"
+		                    data-frame_1="st:6500;sp:1500;sR:6500;"
+		                    data-frame_999="st:w;sp:1000;sR:1000;auto:true;"
+		                    style="z-index: 11; font-family: Raleway;"
+		                >
+		                    for it.
+		                </rs-layer>
+		            </rs-slide>
+		            <rs-slide data-key="rs-3" data-title="Slide" data-thumb="assets/images/slider3.jpg" data-anim="ei:d;eo:d;s:d;r:0;t:crossfade;sl:d;">
+		                <img src="assets/images/slider3.jpg" title="Home &#8211; 1" class="rev-slidebg" data-no-retina />
+
+		                <rs-layer
+		                    id="slider-1-slide-3-layer-2"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:200px;"
+		                    data-text="s:65;l:140;fw:900;a:inherit;"
+		                    data-frame_0="y:80px;"
+		                    data-frame_1="st:500;sp:1500;sR:500;"
+		                    data-frame_999="st:w;sp:1000;sR:7000;auto:true;"
+		                    style="z-index: 5; font-family: Raleway;"
+		                >
+		                    Expert
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-3-layer-3"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:231px;y:201px;"
+		                    data-text="s:65;l:140;fw:100;a:inherit;"
+		                    data-frame_0="y:-40px;"
+		                    data-frame_1="st:1500;sp:1500;sR:1500;"
+		                    data-frame_999="st:w;sp:1000;sR:6000;auto:true;"
+		                    style="z-index: 6; font-family: Raleway;"
+		                >
+		                    in
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-3-layer-4"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:300px;"
+		                    data-text="s:65;l:100;fw:100;a:inherit;"
+		                    data-frame_0="x:-200px;"
+		                    data-frame_1="st:2500;sp:1500;sR:2500;"
+		                    data-frame_999="st:w;sp:1000;sR:5000;auto:true;"
+		                    style="z-index: 7; font-family: Raleway;"
+		                >
+		                    Business
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-3-layer-5"
+		                    data-type="text"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="x:278px;y:300px;"
+		                    data-text="s:65;l:100;fw:900;a:inherit;"
+		                    data-frame_0="x:250px;"
+		                    data-frame_1="st:3500;sp:1500;sR:3500;"
+		                    data-frame_999="st:w;sp:1000;sR:4000;auto:true;"
+		                    style="z-index: 8; font-family: Raleway;"
+		                >
+		                    Advice
+		                </rs-layer>
+
+		                <rs-layer
+		                    id="slider-1-slide-3-layer-7"
+		                    class="rev-btn rev-withicon"
+		                    data-type="button"
+		                    data-color="#274584"
+		                    data-rsp_ch="on"
+		                    data-xy="y:411px;"
+		                    data-text="s:18;l:17;fw:600;a:inherit;"
+		                    data-padding="t:18;r:35;b:18;l:35;"
+		                    data-border="bos:solid;boc:#274584;bow:3px,3px,3px,3px;"
+		                    data-frame_0="y:50px;"
+		                    data-frame_1="st:4500;sp:1500;sR:4500;"
+		                    data-frame_999="st:w;sp:1000;sR:3000;auto:true;"
+		                    data-frame_hover="c:#fff;bgc:#274584;boc:#274584;bor:0px,0px,0px,0px;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:none;"
+		                    style="z-index: 9; background-color: rgba(0, 0, 0, 0); font-family: Raleway; cursor: pointer; outline: none; box-shadow: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"
+		                >
+		                    Read More&nbsp;&nbsp;<i class="fa-angle-right"></i>
+		                </rs-layer>
+		            </rs-slide>
+		        </rs-slides>
+		    </rs-module>
+		    <script type="text/javascript">
+		        setREVStartSize({ c: "rev_slider_1_1", rl: [1240, 1024, 778, 480], el: [800], gw: [1200], gh: [800], type: "standard", justify: "", layout: "fullwidth", mh: "0" });
+		        var revapi1, tpj;
+		        function revinit_revslider11() {
+		            jQuery(function () {
+		                tpj = jQuery;
+		                revapi1 = tpj("#rev_slider_1_1");
+		                if (revapi1 == undefined || revapi1.revolution == undefined) {
+		                    revslider_showDoubleJqueryError("rev_slider_1_1");
+		                } else {
+		                    revapi1.revolution({
+		                        visibilityLevels: "1240,1024,778,480",
+		                        gridwidth: 1200,
+		                        gridheight: 800,
+		                        spinner: "spinner0",
+		                        perspective: 600,
+		                        perspectiveType: "local",
+		                        editorheight: "800,768,960,720",
+		                        responsiveLevels: "1240,1024,778,480",
+		                        progressBar: { disableProgressBar: true },
+		                        navigation: {
+		                            mouseScrollNavigation: false,
+		                            wheelCallDelay: 1000,
+		                            onHoverStop: false,
+		                            arrows: {
+		                                enable: true,
+		                                style: "persephone",
+		                                hide_onmobile: true,
+		                                hide_under: 480,
+		                                hide_onleave: true,
+		                                left: {},
+		                                right: {},
+		                            },
+		                        },
+		                        fallbacks: {
+		                            allowHTML5AutoPlayOnAndroid: true,
+		                        },
+		                    });
+		                }
+		            });
+		        } // End of RevInitScript
+		        var once_revslider11 = false;
+		        if (document.readyState === "loading") {
+		            document.addEventListener("readystatechange", function () {
+		                if ((document.readyState === "interactive" || document.readyState === "complete") && !once_revslider11) {
+		                    once_revslider11 = true;
+		                    revinit_revslider11();
+		                }
+		            });
+		        } else {
+		            once_revslider11 = true;
+		            revinit_revslider11();
+		        }
+		    </script>
+		    <script>
+		        var htmlDivCss = unescape(
+		            "%23rev_slider_1_1_wrapper%20.persephone.tparrows%20%7B%0A%09cursor%3Apointer%3B%0A%09background%3Argba%28255%2C%20255%2C%20255%2C%200.75%29%3B%0A%09width%3A40px%3B%0A%09height%3A40px%3B%0A%09position%3Aabsolute%3B%0A%09display%3Ablock%3B%0A%09z-index%3A1000%3B%0A%20%20%20%20border%3A1px%20solid%20rgba%28255%2C%20255%2C%20255%2C%200%29%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.persephone.tparrows%3Ahover%20%7B%0A%09background%3Argba%28227%2C%20246%2C%20249%2C%200.92%29%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.persephone.tparrows%3Abefore%20%7B%0A%09font-family%3A%20%27revicons%27%3B%0A%09font-size%3A15px%3B%0A%09color%3A%20%23274584%3B%0A%09display%3Ablock%3B%0A%09line-height%3A%2040px%3B%0A%09text-align%3A%20center%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.persephone.tparrows.tp-leftarrow%3Abefore%20%7B%0A%09content%3A%20%27%5Ce824%27%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.persephone.tparrows.tp-rightarrow%3Abefore%20%7B%0A%09content%3A%20%27%5Ce825%0A%27%3B%0A%7D%0A%0A%0A"
+		        );
+		        var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
+		        if (htmlDiv) {
+		            htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+		        } else {
+		            var htmlDiv = document.createElement("div");
+		            htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+		            document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+		        }
+		    </script>
+		    <script>
+		        var htmlDivCss = unescape("%0A%0A%0A");
+		        var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
+		        if (htmlDiv) {
+		            htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+		        } else {
+		            var htmlDiv = document.createElement("div");
+		            htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+		            document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+		        }
+		    </script>
+		</rs-module-wrap>
+		<!-- END REVOLUTION SLIDER -->
 
 		<!-- Home Bottom info -->
 		<section class="home-bottom-info-section">
@@ -545,8 +935,8 @@
 						<span>人がいる</span>
 					</h1>
 					<p class="home-bottom-info__text">
-						BBBKE LERTES/BETE.
-						あたらまたいの際きにとって感的に相談ができる社外役員でありたいときえていま
+						経営者には「相談できる人」が必要です。<br>
+						私たちは中小企業の経営者にとって総合的に相談ができる社外役員でありたいと考えています
 					</p>
 				</div>
 			</div>
@@ -566,7 +956,7 @@
 						</h3>
 						<div class="intro__item-info-bar"></div>
 						<p class="intro__item-info-text">
-							私たちが目指すのは経営者の皆様の身の相談相です。わが西のように悩み解決策が共に考える調味の相韓相手でありたいと考えています
+							 私たちが目据すのは経営者の皆標の条身の相談相です。<br> わが事のように食み解決生を共に考える配の相談相手でありたいと考えています
 						</p>
 					</div>
 				</div>
@@ -577,7 +967,7 @@
 						</h3>
 						<div class="intro__item-info-bar"></div>
 						<p class="intro__item-info-text">
-							私たちは「を購大阪経営に活用してお客様のお役ににちたいと考えています。私たちは「と経営コンサルが職合したサービスを目指しています
+							私たちはITを最大了経営に活用してお客様のお役に立ちたいと考えています。<br>私たちはけと始コンサルが酸合したサービスを目指しています
 						</p>
 					</div>
 					<div class="intro__item-image-outer">
@@ -594,7 +984,7 @@
 						</h3>
 						<div class="intro__item-info-bar"></div>
 						<p class="intro__item-info-text">
-							52.2BGM, KB, RORDSACE RCNEUSH RENOZAMER Hとしてお客様をサポートします
+							私たちは、法人税聞会計、相事業天絶から人事評価に至るまで幅広い専門知識を持っ大宙門集<br> 団としてお客様をサポートします
 						</p>
 					</div>
 				</div>
@@ -702,13 +1092,16 @@
 		<!-- Business tab -->
 	</main>
 	<!-- jquery -->
-	<script src="./assets/plugins/jquery/jquery.min.js"></script>
+	<script src="./assets/js/jquery.min.js"></script>
 	<!-- Bootstrap -->
-	<script src="./assets/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="./assets/js/bootstrap.bundle.min.js"></script>
 	<!-- Owl Carosel -->
 	<script src="./assets/plugins/owl-carousel/owl.carousel.min.js"></script>
 	<!-- Slick Slider -->
 	<script src="./assets/plugins/slick-slider/slick.min.js"></script>
+	<!-- RevSlider -->
+	<script src="./assets/plugins/revslider/rbtools.min.js"></script>
+	<script src="./assets/plugins/revslider/rs6.min.js"></script>
 	<!-- Main Js -->
 	<script src="./assets/js/main.js"></script>
 </body>
