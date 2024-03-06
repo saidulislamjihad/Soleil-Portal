@@ -21,7 +21,6 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/responsive.css">
-
 </head>
 <body>
 	<!-- Header -->
@@ -46,7 +45,7 @@
 						</div>
 						<div class="header-top__inner">
 							<div class="header-top__info-icon">
-								<span class="zmdi zmdi-smartphone-ring zmdi-hc-fw"> </span>
+								<span class="zmdi zmdi-time zmdi-hc-fw"> </span>
 							</div>
 							<div class="header-top__info-text-outer">
 								<span class="header-top__info-text">
@@ -485,7 +484,7 @@
 	<!-- Header -->
 	<main>
 		<!-- Banner -->
-		<section class="banner-section">
+		<section class="banner-section" style="background-image: url(assets/images/slider2.jpg);">
 			<div class="container">
 				<div class="banner__content-outer">
 					<h1 class="banner__content-title">
@@ -502,7 +501,7 @@
 		<!-- Contact info -->
 		<section class="contact-info-section">
 			<div class="container">
-				<div class="row">
+				<div class="row align-items-center">
 					<div class="col-md-5">
 						<div class="contact-info__wrapper">
 							<h1 class="contact-info__title">
@@ -514,7 +513,7 @@
 							<h3 class="contact-info__office-location">
 								上越事務所
 							</h3>
-							<div class="contact-info__item-outer">
+							<div class="contact-info__item-outer mt-5">
 								<div class="contact-info__item-icon">
 									<i class="fas fa-map-marker-alt"></i>
 								</div>
@@ -546,6 +545,7 @@
 					</div>
 					<div class="col-md-7">
 						<div class="contact-info__right-outer">
+							<div class="contact-info__right-dot-outer"></div>
 							<div class="contact-info__image-outer">								
 								<img src="assets/images/contact-image.png" alt="Image" class="contact-info__image">
 							</div>
@@ -561,21 +561,19 @@
 
 		<!-- Contact form -->
 		<section class="contact-form-section">
-			<div class="contact-form__top-wrap">
-				<div class="container">
-					<div class="contact-form__top-outer">
-						<h1 class="contact-form__top-title">
-							Send us a message
-						</h1>
-						<p class="contact-form__top-text">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-						</p>
-					</div>
+			<div class="contact-form__top-wrap" id="particles">
+				<div class="contact-form__top-outer">
+					<h1 class="contact-form__top-title">
+						Send us a message
+					</h1>
+					<p class="contact-form__top-text">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+					</p>
 				</div>
 			</div>
 			<div class="contact-form__wrapper">
 				<div class="row">
-					<div class="col-md-8 m-auto">
+					<div class="col-md-7 m-auto">
 						<div class="contact-form__outer">
 							<form action="" method="" class="contact-form">
 								<div class="row">
@@ -676,7 +674,7 @@
 					</div>
 				</div>
 				<div class="testimonial__right-outer">
-					<div class="testimonial__slider-items-wrapper">
+					<div class="testimonial__slider-items-wrapper owl-carousel">
 						<div class="tes__slider-item-outer">
 							<div class="tes__slider-item-image-outer">
 								<img src="assets/images/testimonial1.jpg" alt="Avater" class="tes__slider-item-image">
@@ -810,19 +808,26 @@
 		</section>
 		<!-- Question -->
 	</main>
+	<a href="#" id="toTop" style="display: inline;">
+		<span id="toTopHover"></span>
+		To Top
+	</a>
 
 	<!-- jquery -->
-	<script src="./assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
 	<!-- Bootstrap -->
-	<script src="./assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<!-- Owl Carosel -->
-	<script src="./assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+	<script src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
 	<!-- Slick Slider -->
-	<script src="./assets/plugins/slick-slider/slick.min.js"></script>
+	<script src="assets/plugins/slick-slider/slick.min.js"></script>
 	<!-- RevSlider -->
-	<script src="./assets/plugins/revslider/rbtools.min.js"></script>
-	<script src="./assets/plugins/revslider/rs6.min.js"></script>
+	<script src="assets/plugins/revslider/rbtools.min.js"></script>
+	<script src="assets/plugins/revslider/rs6.min.js"></script>
+	<!-- Pattern Js -->
+	<script type='text/javascript' src='assets/plugins/particleground/jquery.particleground.min.js'></script>
+  	<script type='text/javascript' src='assets/plugins/particleground/demo.js'></script>
 	<!-- Main Js -->
-	<script src="./assets/js/main.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
