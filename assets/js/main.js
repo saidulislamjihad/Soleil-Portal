@@ -1,13 +1,38 @@
 //Preloader Js
 $(".loader").fadeOut(500);
 
+// Mobile menu start*
+$(document).on("click", ".nav-toggle-btn-outer", function () {
+    $("body").toggleClass("mobile-menu-visible");
+    $(this).toggleClass("active");
+
+    $(".nav-items-wrapper").slideToggle();
+
+    if(!$(this).hasClass('active')){
+        $('.submenu-list.parent').slideUp();
+    }
+});
+
+$(document).on("click", ".dt-menu-expand.parent", function () {
+    $(this).toggleClass("active");
+
+    $(this).closest(".nav-list-item").find(".submenu-list.parent").slideToggle();
+});
+
+$(document).on("click", ".dt-menu-expand.sub", function () {
+    $(this).toggleClass("active");
+
+    $(this).closest(".submenu-list-item").find(".submenu-list.sub").slideToggle();
+});
+// *Mobile menu end
+
 // fixed header
-$(window).scroll(function() {
+$(window).scroll(function () {
     var scrollTop = $(window).scrollTop();
     if (scrollTop >= 200) {
-        $('body').addClass('fixed-header');
+        $("body").addClass("fixed-header");
     } else {
-        $('body').removeClass('fixed-header');
+        $("body").removeClass("fixed-header");
     }
 });
 
@@ -137,134 +162,131 @@ if (htmlDiv) {
 }
 // Home main Slider End
 
-
 //Home Slider Js
-$('.home__items-wrapper').slick({
-  dots: false,
-  arrows: true,
-  infinite: true,
-  speed: 500,
-  autoplay: true,
-  fade: true,
-  cssEase: 'linear',
-  prevArrow:
-      '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-  nextArrow:
-      '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+$(".home__items-wrapper").slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    fade: true,
+    cssEase: "linear",
+    prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
 });
 
 //Count Up Js
-$(window).scroll(function() {
-  var windowHeight = $(window).height();
-  var windowScrollTop = $(window).scrollTop();
-  var successSection = $('.success-story-section');
-  
-  // Check if success section is in the viewport
-  if (successSection.length) {
-    var successSectionTop = successSection.offset().top;
-    var successSectionHeight = successSection.outerHeight();
-    
-    if (windowScrollTop + windowHeight > successSectionTop && windowScrollTop < successSectionTop + successSectionHeight) {
-      // Code to trigger the countdown animation
-      $('.success__item-info-number').each(function() {
-        var $this = $(this),
-          countTo = $this.attr('data-value');
-        $({ countNum: $this.text()}).animate({
-          countNum: countTo
-        },
-        {
-          duration: 10000,
-          easing:'linear',
-          step: function() {
-            $this.text(Math.floor(this.countNum));
-          },
-          complete: function() {
-            $this.text(this.countNum);
-            //alert('finished');
-          }
-        });  
-      });
+$(window).scroll(function () {
+    var windowHeight = $(window).height();
+    var windowScrollTop = $(window).scrollTop();
+    var successSection = $(".success-story-section");
+
+    // Check if success section is in the viewport
+    if (successSection.length) {
+        var successSectionTop = successSection.offset().top;
+        var successSectionHeight = successSection.outerHeight();
+
+        if (windowScrollTop + windowHeight > successSectionTop && windowScrollTop < successSectionTop + successSectionHeight) {
+            // Code to trigger the countdown animation
+            $(".success__item-info-number").each(function () {
+                var $this = $(this),
+                    countTo = $this.attr("data-value");
+                $({ countNum: $this.text() }).animate(
+                    {
+                        countNum: countTo,
+                    },
+                    {
+                        duration: 10000,
+                        easing: "linear",
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        },
+                    }
+                );
+            });
+        }
     }
-  }
 });
 
-
 // Article Slider js
-$('.article__items-wrapper').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
+$(".article__items-wrapper").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
     dots: true,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
         },
-        600:{
-            items:2
+        600: {
+            items: 2,
         },
-        1000:{
-            items:3
-        }
-    }
-})
+        1000: {
+            items: 3,
+        },
+    },
+});
 
 // Testimonial Slider js
-$('.testimonial__slider-items-wrapper').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:false,
+$(".testimonial__slider-items-wrapper").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: false,
     dots: true,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
         },
-        600:{
-            items:1
+        600: {
+            items: 1,
         },
-        1000:{
-            items:1
-        }
-    }
-})
+        1000: {
+            items: 1,
+        },
+    },
+});
 
 //Dot Js
 $(document).ready(function () {
     // Function to generate the pattern
     function generatePattern(rows, columns) {
-      for (var i = rows - 1; i >= 0; i--) {
-        var dotRow = $("<div class='dot-row'></div>");
+        for (var i = rows - 1; i >= 0; i--) {
+            var dotRow = $("<div class='dot-row'></div>");
 
-        for (var j = 0; j < columns; j++) {
-          dotRow.append("<span>&#x2022;</span>");
+            for (var j = 0; j < columns; j++) {
+                dotRow.append("<span>&#x2022;</span>");
+            }
+
+            // Set opacity from 0 to 1
+            var opacity = (rows - 1 - i) / (rows - 1); // Adjust this calculation as needed
+            dotRow.css("opacity", opacity);
+
+            $(".contact-info__right-dot-outer").append(dotRow);
         }
-
-        // Set opacity from 0 to 1
-        var opacity = (rows - 1 - i) / (rows - 1); // Adjust this calculation as needed
-        dotRow.css("opacity", opacity);
-
-        $(".contact-info__right-dot-outer").append(dotRow);
-      }
     }
 
     // Call the function to generate the pattern
     generatePattern(10, 10); // Define your rows & columns as parameters
 });
 
-
 //Scroll Top Js
-  var toTopButton = document.getElementById("toTop");
-  window.addEventListener("scroll", function() {
+var toTopButton = document.getElementById("toTop");
+window.addEventListener("scroll", function () {
     if (window.scrollY >= 200) {
-      toTopButton.style.display = "block";
+        toTopButton.style.display = "block";
     } else {
-      toTopButton.style.display = "none";
+        toTopButton.style.display = "none";
     }
-  });
-  toTopButton.addEventListener("click", function() {
+});
+toTopButton.addEventListener("click", function () {
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+        top: 0,
+        behavior: "smooth",
     });
-  });
+});
