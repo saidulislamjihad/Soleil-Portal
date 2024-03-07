@@ -59,7 +59,7 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 999;
     animation: smoothScroll 1s forwards;
     background: #fff;
 }
@@ -1122,7 +1122,6 @@ body {
 /* Tab Section css start */
 .business-tab-wrapper {
     background-image: url(../images/tab-bg.jpg);
-    background-position: 50% -43px;
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 100px;
@@ -1237,9 +1236,6 @@ body {
     line-height: 28px;
 }
 
-.business-tab__info-wrap {
-}
-
 .business-tab__info-list-wrap {
     padding-left: 20px;
 }
@@ -1274,6 +1270,8 @@ body {
     background-image: url(../images/bg.jpg);
     position: relative;
     z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .success-story-section:before {
@@ -1301,6 +1299,7 @@ body {
 
 .success__item-wrap {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .success__item-icon-outer {
@@ -1655,8 +1654,6 @@ body {
     margin-bottom: 5px;
 }
 
-.choose__section-title-outer {}
-
 .choose__section-title-outer .common-btn-link {
     color: #fff;
     border: 3px solid #fff;
@@ -1783,7 +1780,7 @@ body {
 }
 
 .team__item-outer {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .team__item-social-list-item {
@@ -1939,6 +1936,25 @@ body {
 .review__item-wrapper {
     margin-bottom: 30px;
 }
+
+.review__items-wrapper .owl-nav {
+    text-align: center;
+}
+
+.review__items-wrapper .owl-nav button span {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    background-color: var(--primary);
+}
+
+.review__items-wrapper .owl-nav button.owl-prev {
+    margin-right: 15px;
+}
 /* Review section css End */
 
 /* News section css start */
@@ -1981,7 +1997,7 @@ body {
 
 .news__item-image-box-time {
     display: inline-block;
-    z-index: 99;
+    z-index: 9;
     position: absolute;
     top: 0;
     left: 45px;
@@ -2503,6 +2519,7 @@ body {
 
 .footer__top-wrapper{
     background-image: url(../images/footer-bg.jpg);
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     padding-top: 70px;
