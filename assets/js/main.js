@@ -15,12 +15,23 @@ $(document).on("click", ".nav-toggle-btn-outer", function () {
 
 $(document).on("click", ".dt-menu-expand.parent", function () {
     $(this).toggleClass("active");
+    if($(this).hasClass('active')){
+        $(this).text('-');
+    }else{
+        $(this).text('+');
+    }
+    
 
     $(this).closest(".nav-list-item").find(".submenu-list.parent").slideToggle();
 });
 
 $(document).on("click", ".dt-menu-expand.sub", function () {
     $(this).toggleClass("active");
+    if($(this).hasClass('active')){
+        $(this).text('-');
+    }else{
+        $(this).text('+');
+    }
 
     $(this).closest(".submenu-list-item").find(".submenu-list.sub").slideToggle();
 });
