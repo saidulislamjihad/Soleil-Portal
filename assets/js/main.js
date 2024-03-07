@@ -4,7 +4,7 @@ $(".loader").fadeOut(500);
 // fixed header
 $(window).scroll(function() {
     var scrollTop = $(window).scrollTop();
-    if (scrollTop >= 100) {
+    if (scrollTop >= 200) {
         $('body').addClass('fixed-header');
     } else {
         $('body').removeClass('fixed-header');
@@ -251,3 +251,20 @@ $(document).ready(function () {
     // Call the function to generate the pattern
     generatePattern(10, 10); // Define your rows & columns as parameters
 });
+
+
+//Scroll Top Js
+  var toTopButton = document.getElementById("toTop");
+  window.addEventListener("scroll", function() {
+    if (window.scrollY >= 200) {
+      toTopButton.style.display = "block";
+    } else {
+      toTopButton.style.display = "none";
+    }
+  });
+  toTopButton.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
