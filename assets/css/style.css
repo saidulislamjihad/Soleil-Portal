@@ -622,6 +622,8 @@ body {
     position: absolute;
     top: 0;
     right: 10px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .nav-list-item {
@@ -666,7 +668,7 @@ body {
     position: relative;
 }
 
-.sumenu-list {
+.submenu-list {
     position: absolute;
     top: 90px;
     left: 0;
@@ -679,7 +681,7 @@ body {
     z-index: 9;
 }
 
-.sumenu-list-item {
+.submenu-list-item {
     padding: 0 10px;
     display: block;
     -webkit-transition: all 0.3s linear;
@@ -689,7 +691,7 @@ body {
     transition: all 0.3s linear;
 }
 
-.sumenu-list-item-link {
+.submenu-list-item-link {
     position: relative;
     font-size: 14px;
     font-weight: 400;
@@ -698,11 +700,11 @@ body {
     display: block;
 }
 
-.sumenu-list-item-link:hover {
+.submenu-list-item-link:hover {
     color: var(--menu-hover);
 }
 
-.sumenu-list-item-link:before {
+.submenu-list-item-link:before {
     content: "";
     display: block;
     position: absolute;
@@ -718,7 +720,7 @@ body {
     transition: all 0.3s linear;
 }
 
-.sumenu-list-item-link:after {
+.submenu-list-item-link:after {
     content: "";
     display: inline-block;
     height: 5px;
@@ -740,31 +742,31 @@ body {
     transition: all 0.3s linear;
 }
 
-.sumenu-list-item-link:hover::before,
-.sumenu-list-item-link:hover::after {
+.submenu-list-item-link:hover::before,
+.submenu-list-item-link:hover::after {
     background-color: var(--primary);
 }
 
-.nav-list-item.item-has-submenu:hover .sumenu-list {
+.nav-list-item.item-has-submenu:hover .submenu-list {
     top: 100%;
     visibility: visible;
     opacity: 1;
     transition: all .3s ease;
 }
 
-.sumenu-list-item:last-child .sumenu-list-item-link::before {
+.submenu-list-item:last-child .submenu-list-item-link::before {
     display: none;
 }
 
-.sumenu-list-item:last-child .sumenu-list-item-link::after {
+.submenu-list-item:last-child .submenu-list-item-link::after {
     display: none;
 }
 
-.sumenu-list-item.item-has-sub-submenu {
+.submenu-list-item.item-has-sub-submenu {
     position: relative;
 }
 
-.sumenu-list-item.item-has-sub-submenu:before {
+.submenu-list-item.item-has-sub-submenu:before {
     position: absolute;
     display: block;
     content: "\f30b";
@@ -787,18 +789,18 @@ body {
     transition: all 0.3s linear;
 }
 
-.sumenu-list-item.item-has-sub-submenu:hover::before {
+.submenu-list-item.item-has-sub-submenu:hover::before {
     right: 15px;
 }
 
-.sumenu-list-item.item-has-sub-submenu .sumenu-list.sub {
+.submenu-list-item.item-has-sub-submenu .submenu-list.sub {
     left: 90%;
     top: 0;
     visibility: hidden;
     opacity: 0;
 }
 
-.sumenu-list-item.item-has-sub-submenu:hover .sumenu-list.sub {
+.submenu-list-item.item-has-sub-submenu:hover .submenu-list.sub {
     left: 100%;
     visibility: visible;
     opacity: 1;
