@@ -331,18 +331,20 @@ $(document).ready(function () {
     generatePattern(10, 10); // Define your rows & columns as parameters
 });
 
-//Scroll Top Js
-var toTopButton = document.getElementById("toTop");
-window.addEventListener("scroll", function () {
-    if (window.scrollY >= 200) {
-        toTopButton.style.display = "block";
-    } else {
-        toTopButton.style.display = "none";
-    }
-});
-toTopButton.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
+$(window).scroll( function(){
+    //Scroll Top Js
+    var toTopButton = document.getElementById("toTop");
+    window.addEventListener("scroll", function () {
+        if (window.scrollY >= 200) {
+            toTopButton.style.display = "block";
+        } else {
+            toTopButton.style.display = "none";
+        }
     });
-});
+    toTopButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+})

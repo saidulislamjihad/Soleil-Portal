@@ -139,6 +139,7 @@ body {
     position: absolute;
     background: #fff;
     top: -7px;
+    transition: all .5s ease;
 }
 
 .nav-toggle-btn .btn-inner:after {
@@ -148,6 +149,21 @@ body {
     position: absolute;
     background: #fff;
     top: 7px;
+    transition: all .5s ease;
+}
+
+.nav-toggle-btn-outer.active .btn-inner {
+    border-bottom: transparent;
+}
+
+.nav-toggle-btn-outer.active .btn-inner::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle-btn-outer.active .btn-inner::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 /*small btn css*/
 
@@ -431,7 +447,7 @@ body {
     width: 45px;
     height: 80px;
     border: none;
-    z-index: 999;
+    z-index: 99;
     text-indent: -9999px;
     background-size: 100%;
     border-radius: 50px;
@@ -1226,12 +1242,13 @@ body {
 
 .business-tab__info-outer .section__title {
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .business-tab__info-outer .section__text {
     margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 400;
     color: #4d4d4d;
     line-height: 28px;
 }
@@ -1242,6 +1259,7 @@ body {
 
 .business-tab__info-list-wrap .section__title {
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .business-tab__info-list {
@@ -1262,6 +1280,28 @@ body {
     background: var(--primary);
     color: #fff;
 }
+
+.business-tab__info-list-item:last-child {
+    border-bottom: none;
+}
+
+/*revers item css*/
+.revers .business-tab__info-list-wrap {
+    padding-left: 0;
+}
+
+.revers .business-tab__info-wrap {
+    border-right: none;
+    border-left: 1px solid #e5e5e5;
+    padding-right: 0;
+    padding-left: 40px;
+}
+
+.revers .business-tab__info-img-outer {
+    padding-right: 0;
+    margin-left: 30px;
+}
+
 /* Tab Section css End */
 
 /* Success story section css start */
@@ -1689,6 +1729,7 @@ body {
     margin-bottom: 30px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 .choose__item-content-outer {
@@ -2513,7 +2554,7 @@ body {
     height: 100%;
     left: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(15, 81, 112, 0.8);
     z-index: -1;
 }
 
@@ -2587,7 +2628,7 @@ body {
 }
 
 .footer__item-social-list-link:hover i {
-    color: var(--primary);
+    color: #000;
 }
 
 .footer__item-title {
@@ -2660,6 +2701,7 @@ body {
     display: block;
     padding: 10px 0px 10px 20px;
     position: relative;
+    transition: all .3s ease;
 }
 
 .footer__list-item:before {
@@ -2694,11 +2736,11 @@ body {
 }
 
 .footer__list-item-link:hover {
-    color: var(--primary);
+    color: #000;
 }
 
 .footer__list-item:hover .footer__list-item-link {
-    color: var(--primary);
+    color: #000;
 }
 
 .footer__contact-info-list {
@@ -2729,11 +2771,11 @@ body {
 }
 
 .footer__contact-info-list-item-link:hover {
-    color: var(--primary);
+    color: #000;
 }
 
 .footer__bottom-wrap {
-    background: #000;
+    background: #064a6b;
     padding: 30px 0;
 }
 
@@ -2778,7 +2820,7 @@ body {
 }
 
 .footer__bottom-social-list-item-link:hover i {
-    color: var(--primary);
+    color: #000;
 }
 /* Footer section css End */
 
@@ -2936,6 +2978,7 @@ div#particles {
 
 .contact-form-section {
     position: relative;
+    overflow: hidden;
 }
 
 .contact-form__wrapper {
@@ -3194,7 +3237,10 @@ div#particles {
 .faq__tab-outer .nav-tabs .nav-item .nav-link.active {
     border-top: var(--bs-nav-tabs-border-width) solid transparent;
     border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
-    border-top-right-radius: inherit;border-top-left-radius: inherit;color: var(--primary);}
+    border-top-right-radius: inherit;border-top-left-radius: inherit;color: var(--primary);
+    position: relative;
+    z-index: 1;
+}
 
 .faq__tab-outer .nav-tabs .nav-item .nav-link {
     font-size: 20px;
@@ -3205,12 +3251,21 @@ div#particles {
     font-weight: 600;
 }
 
+.faq__tab-outer .nav-tabs .nav-item .nav-link:hover {
+    color: var(--primary);
+}
+
 .faq__item-wrap {
     display: flex;
 }
 
 .faq__item-image-outer {
     margin-right: 30px;
+}
+
+.faq__item-wrap.revers .faq__item-image-outer {
+    margin-right: 0;
+    margin-left: 30px;
 }
 
 .faq__item-image {
