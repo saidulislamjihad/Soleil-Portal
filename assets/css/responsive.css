@@ -380,6 +380,9 @@
 	.contact-form__top-outer {
 	    top: 50%;
 	}
+	.preloader span {
+	    font-size: 100px;
+	}
 }
 
 @media screen and ( max-width: 576px ){
@@ -489,6 +492,9 @@
 	    font-size: 35px;
 	    margin-bottom: 25px;
 	}
+	.preloader span {
+	    font-size: 70px;
+	}
 }
 
 @media screen and ( max-width: 400px ){
@@ -529,5 +535,16 @@
 
 	.review__item-text-outer blockquote:after {
 	    display: none;
+	}
+	.preloader span {
+	    font-size: 50px;
+	}
+	.faq__tab-outer .nav-tabs .nav-item .nav-link.active:before {
+	    width: 40px;
+	    left: -40px;
+	}
+	.faq__tab-outer .nav-tabs .nav-item .nav-link.active:after {
+	    width: 40px;
+	    right: -40px;
 	}
 }
